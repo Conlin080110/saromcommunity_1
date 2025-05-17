@@ -1,0 +1,9 @@
+{
+  "short_name": "새롬커뮤니티",
+  "name": "새롬고 커뮤니티",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#d63384",
+  "background_color": "#ffffff",
+  "icons": []
+}
