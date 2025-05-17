@@ -1,14 +1,15 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
-import { getFirestore, collection, addDoc, getDocs, serverTimestamp } from 'firebase/firestore';
+import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDrKfcK8rypaFrYlx_YyVQj3ZdcEtzLXCM",
+  authDomain: "saromc1-c47c0.firebaseapp.com",
+  projectId: "saromc1-c47c0",
+  storageBucket: "saromc1-c47c0.firebasestorage.app",
+  messagingSenderId: "299939581133",
+  appId: "1:299939581133:web:d21453cbf809d2ecccad84",
+  measurementId: "G-8QBD1EHGC1"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -16,4 +17,4 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
 
-export { db, auth, provider, signInWithPopup, signOut, collection, addDoc, getDocs, serverTimestamp };
+export { auth, provider, db, signInWithPopup, signOut };
