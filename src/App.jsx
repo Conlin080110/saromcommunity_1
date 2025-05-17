@@ -19,7 +19,17 @@ export default function App() {
 
   const loadPosts = async () => {
     const querySnapshot = await getDocs(collection(db, "posts"));
-    const items = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    let items = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    if (items.length === 0) {
+      await addDoc(collection(db, "posts"), {
+        name: "익명",
+        content: "📌 첫 번째 테스트 글입니다!",
+        time: serverTimestamp()
+      });
+      items = await getDocs(collection(db, "posts")).then(s =>
+        s.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+      );
+    }
     items.sort((a, b) => b.time?.seconds - a.time?.seconds);
     setPosts(items);
   };
